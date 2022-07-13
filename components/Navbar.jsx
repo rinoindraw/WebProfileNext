@@ -1,28 +1,22 @@
 import Link from 'next/link';
 import { withRouter } from 'next/router';
 
-function Navbar({ router }){
-  console.log(router);
-  const navs = [
-    { text: 'Home', href: '/'},
-    { text: 'About', href: '/about'},
-    { text: 'Portfolio', href: '/portfolio'},
-    { text: 'Contact', href: '/contact'},
-    // { text: ' ', href: ' '},
-  ];
-
+function Navbar(){
     return(
+    <>
       <nav className='navbar'>
         <div className="container">
           <Link href="/"><a className='logo'>Rino Indra.</a></Link>
 
           <ul className="nav-link">
-            { navs.map(nav => (
-              <li><Link href={nav.href}><a className={`nav-item ${ router.pathname == nav.href ? 'active' : ' ' }`}>{nav.text}</a></Link></li>              
-            ))}
+            <li><Link href="/"><a className="nav-item">Home</a></Link></li>
+            <li><Link href="/about"><a className="nav-item">About</a></Link></li>
+            <li><Link href="/portfolio"><a className="nav-item">Portfolio</a></Link></li>
+            <li><Link href="/contact"><a className="nav-item">Contact</a></Link></li>
           </ul>
         </div>
       </nav>
+    </>
     );
 }
 
